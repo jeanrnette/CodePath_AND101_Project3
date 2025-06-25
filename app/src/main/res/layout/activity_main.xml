@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:paddingTop="75dp"
+    android:layout_height="match_parent" >
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <fragment
+        android:id="@+id/nav_host_fragment_activity_main"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/mobile_navigation" />
+
+
+    <!-- Search Bar -->
+    <LinearLayout
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+
+        android:background="@android:color/white"
+        android:elevation="6dp"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Search Icon -->
+        <ImageView
+            android:id="@+id/search_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:layout_marginHorizontal="5dp"
+            app:srcCompat="@drawable/search" />
+
+        <!-- "Search for anything" Text -->
+        <TextView
+            android:id="@+id/search_text"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+
+            android:text="Search for anything on Petsy"
+            android:textAlignment="viewStart"
+            android:textColor="@color/gray"
+            android:textSize="18dp" />
+
+        <!-- Camera Icon -->
+        <ImageView
+            android:id="@+id/camera_icon"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            app:srcCompat="@drawable/camera" />
+    </LinearLayout>
+
+
+    <!-- Popular Today -->
+    <LinearLayout
+        android:id="@+id/popular_today"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/search_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <!-- Popular with animals today! Title (no scroll)-->
+        <TextView
+            android:id="@+id/popular_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Popular with animals today!"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            />
+
+        <!-- Horizontal ScrollView - Image + Title -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <!-- Horizontal container to contain each item-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <!-- Item 1 - twig furniture -->
+                <LinearLayout
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/rounded_image"
+                        android:clipToOutline="true"
+
+                        android:src="@drawable/twig_furniture" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Twig Furniture"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:paddingTop="4dp"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <!-- Item 2 - Feather Jewelry -->
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="12dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/rounded_image"
+                        android:clipToOutline="true"
+                        android:src="@drawable/feather_jewlery" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Feather Jewelry"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:paddingTop="4dp"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <!-- Item 2 - Beewax Balm -->
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="12dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/rounded_image"
+                        android:clipToOutline="true"
+                        android:src="@drawable/beewax_balm" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Beewax Balm"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:paddingTop="4dp"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+
+
+    <!-- Small Shops -->
+    <LinearLayout
+        android:id="@+id/small_shops"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/popular_today"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <!-- Small shops we think you'll love-->
+        <TextView
+            android:id="@+id/shop_title_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Small shops we think you'll love"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            />
+
+        <!-- Horizontal ScrollView - Image + Title -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <!-- Shop 1 - Spider Webs -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <!-- Shop 1 - Spider Webs -->
+                <LinearLayout
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Horizontal images of items -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/rounded_image"
+                        android:clipToOutline="true"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/spider_silk" />
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_marginHorizontal="6dp"
+                            android:layout_height="120dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/spiderweb_curtain" />
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/spiderweb_hammock" />
+                    </LinearLayout>
+
+                    <!-- Shop Description-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <!-- Shop image-->
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="2dp"
+                            android:background="@drawable/rounded_image_small"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/spider_shop"/>
+
+                        <!-- Shop Title + Description-->
+                        <LinearLayout
+                            android:layout_width="240dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <!-- Shop Title -->
+                            <TextView
+                                android:id="@+id/spider_shop_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+
+                                android:text="Spider Threads Studio"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:textSize="13dp"
+                                />
+                            <!-- Description -->
+                            <TextView
+                                android:id="@+id/spider_shop_description"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@+id/shop_title"
+
+
+                                android:text="Elegant, handcrafted webworks"
+                                android:textColor="@color/gray"
+                                android:textSize="13dp"
+                                />
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="2dp"
+                            android:background="@drawable/rounded_image_small"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/circle_heart"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Shop 2 - _______ -->
+                <LinearLayout
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Horizontal images of items -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/rounded_image"
+                        android:clipToOutline="true"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/dog_biscuit" />
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_marginHorizontal="6dp"
+                            android:layout_height="120dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/dog_bundle" />
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/dog_collar" />
+                    </LinearLayout>
+
+                    <!-- Shop Description-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <!-- Shop image-->
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="2dp"
+                            android:background="@drawable/rounded_image_small"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/dog_shop"/>
+
+                        <!-- Shop Title + Description-->
+                        <LinearLayout
+                            android:layout_width="240dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <!-- Shop Title -->
+                            <TextView
+                                android:id="@+id/shop_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+
+                                android:text="The Woofery"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:textSize="13dp"
+                                />
+                            <!-- Description -->
+                            <TextView
+                                android:id="@+id/shop_description"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@+id/shop_title"
+
+
+                                android:text="Gourmet snacks to top-tier gear."
+                                android:textColor="@color/gray"
+                                android:textSize="13dp"
+                                />
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="2dp"
+                            android:background="@drawable/rounded_image_small"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/circle_heart"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+    </LinearLayout>
+
+
+
+
+
+
+
+
+    <!-- Animal Categories-->
+    <!-- Small Shops -->
+    <LinearLayout
+        android:id="@+id/cateogories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/small_shops"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+    <!-- Shop by Category -->
+    <TextView
+        android:id="@+id/shop_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Shop by Category"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        />
+
+        <!-- Categories -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            android:orientation="horizontal">
+
+            <!-- Category 1 - Trinkets -->
+            <LinearLayout
+                android:id="@+id/category_trinket"
+                android:layout_marginTop="5dp"
+                android:layout_width="180dp"
+                android:layout_height="80dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="@drawable/rounded_image_border"
+                android:clipToOutline="true">
+
+                <!-- Category Title -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:text="Trinkets"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" />
+
+                <!-- Cateogry image -->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+
+
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/trinkets" />
+            </LinearLayout>
+
+            <!-- Category 2 - Den & Nest -->
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="180dp"
+                android:layout_height="80dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="@drawable/rounded_image_border"
+                android:clipToOutline="true">
+
+                <!-- Category Title -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:text="Den and Nest"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" />
+
+                <!-- Cateogry image -->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+
+
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/den_nest" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Row 2 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            android:orientation="horizontal">
+
+            <!-- Category 3 - Feather & Furwear -->
+            <LinearLayout
+                android:id="@+id/category_forest_finds"
+                android:layout_marginTop="5dp"
+                android:layout_width="180dp"
+                android:layout_height="80dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="@drawable/rounded_image_border"
+                android:clipToOutline="true">
+
+                <!-- Category Title -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:text="Forest Finds"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" />
+
+                <!-- Cateogry image -->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+
+
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/forest_fionds" />
+            </LinearLayout>
+
+            <!-- Category 4 - Pawcasso Picks -->
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="180dp"
+                android:layout_height="80dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="@drawable/rounded_image_border"
+                android:clipToOutline="true">
+
+                <!-- Category Title -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:text="Pawcasso Picks"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" />
+
+                <!-- Cateogry image -->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+
+
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/paw_arts" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
